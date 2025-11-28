@@ -1,0 +1,226 @@
+[
+  {
+    "image": "https://c.ndtvimg.com/2025-11/4889o97k_shivakumar_625x300_17_November_25.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=738",
+    "label": "real"
+  },
+  {
+    "image": "https://th-i.thgim.com/public/todays-paper/tp-international/apmw2i/article70328109.ece/alternates/LANDSCAPE_1200/13-people-killeG4SF7L277.3.jpg.jpg",
+    "label": "real"
+  },
+  {
+    "image": "https://www.livemint.com/lm-img/img/2025/11/24/600x338/PTI11-24-2025-000104B-0_1763968471785_1763968533691.jpg",
+    "label": "real"
+  },
+  {
+    "image": "https://www.livemint.com/lm-img/img/2025/11/25/600x338/Palash_1764069481911_1764069492243.png",
+    "label": "real"
+  },
+  {
+    "image": "https://www.livemint.com/lm-img/img/2025/11/24/600x338/Screenshot_2025-11-24_120736_1763966270489_1763966283616.png",
+    "label": "real"
+  },
+  {
+    "image": "https://www.hindustantimes.com/ht-img/img/2025/11/27/550x309/weather_chennai_cyclone_ditwah_1764219855270_1764219855461.jpg",
+    "label": "real"
+  },
+  {
+    "image": "https://th-i.thgim.com/public/incoming/xlaols/article70330098.ece/alternates/LANDSCAPE_1200/13-people-killeG4SF7N69T.3.jpg.jpg",
+    "label": "real"
+  },
+  {
+    "image": "https://th-i.thgim.com/public/news/national/tamil-nadu/etpza9/article70329299.ece/alternates/LANDSCAPE_1200/Sengottaiyan%20joins%20TVK%20Vijay.jpeg",
+    "label": "real"
+  },
+  {
+    "image": "https://www.aljazeera.com/wp-content/uploads/2025/11/AP23354583740518-1764125496.jpg?resize=770%2C513&quality=80",
+    "label": "real"
+  },
+  {
+    "image": "https://www.aljazeera.com/wp-content/uploads/2025/11/AP23354583740518-1764125496.jpg?resize=770%2C513&quality=80",
+    "label": "real"
+  },
+  {
+    "image": "https://c.ndtvimg.com/2025-11/suctgbo_noida-headless-murder_625x300_16_November_25.jpeg?downsize=773:435",
+    "label": "real"
+  },
+  {
+    "image": "https://th-i.thgim.com/public/incoming/t9loff/article70245946.ece/alternates/LANDSCAPE_1200/10507_9-11-2019_17-10-36_3_VIS_7900.JPG",
+    "label": "real"
+  },
+  {
+    "image": "https://www.hindustantimes.com/ht-img/img/2025/10/20/550x309/Security-2_1746731649396_1760932291960.jpg",
+    "label": "real"
+  },
+  {
+    "image": "https://ichef.bbci.co.uk/news/1536/cpsprodpb/7a89/live/6cc038c0-ca95-11f0-a892-01d657345866.jpg.webp",
+    "label": "real"
+  },
+  {
+    "image": "https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2025/05/09/1745580-india-vs-pak-2025-1.jpg?im=Resize=(700,400)",
+    "label": "real"
+  },
+  {
+    "image": "https://www.aljazeera.com/wp-content/uploads/2025/05/afp_681dde22ba4a-1746787874.jpg?resize=770%2C513&quality=80",
+    "label": "real"
+  },
+  {
+    "image": "https://ichef.bbci.co.uk/news/1536/cpsprodpb/5657/production/_105830122_hi052623537.jpg.webp",
+    "label": "real"
+  },
+  {
+    "image": "https://e3.365dm.com/25/04/2048x1152/skynews-indian-soldiers-paramilitary-soldiers_6895917.jpg?20250424212307",
+    "label": "real"
+  },
+  {
+    "image": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202505/sindoor-dead-100200235-16x9_0.jpg?VersionId=61hDVgbyDbUAJZz8IKGXLxrVPnbJSZ2U&size=690:388",
+    "label": "real"
+  },
+  {
+    "image": "https://asianews.network/wp-content/uploads/bfi_thumb/30MW7UFx15NJfS82MA4JUJqhZ4p8EZnoarXgPa-_5mU-7jhfj40eusfuxniefwl5jz18o35yo7kvfnu5lirs9q8.jpg",
+    "label": "real"
+  },
+  {
+    "image": "https://d3i6fh83elv35t.cloudfront.net/static/2025/05/2025-05-07T095231Z_975962085_RC2WCEAR7T5I_RTRMADP_3_INDIA-PAKISTAN-1200x800.jpg",
+    "label": "real"
+  },
+  {
+    "image": "https://ichef.bbci.co.uk/news/1536/cpsprodpb/64A0/production/_128406752_f5179bbe-3089-4eaf-a38f-c9c8c2d84773.jpg.webp",
+    "label": "real"
+  },
+  {
+    "image": "https://ichef.bbci.co.uk/news/1536/cpsprodpb/E3BE/production/_105820385_mediaitem105820384.jpg.webp",
+    "label": "real"
+  },
+  {
+    "image": "https://www.aljazeera.com/wp-content/uploads/2025/04/2025-04-24T123157Z_1959129332_RC2A4EAVFSG1_RTRMADP_3_INDIA-KASHMIR-ATTACK-WATER-1745504864.jpg?resize=770%2C513&quality=80",
+    "label": "real"
+  },
+  {
+    "image": "https://i.dawn.com/primary/2016/07/579cdcb1adcb2.jpg",
+    "label": "real"
+  },
+  {
+    "image": "https://i.dawn.com/primary/2016/07/579ca7d601871.jpg",
+    "label": "real"
+  },
+  {
+    "image": "https://e3.365dm.com/25/04/2048x1152/skynews-india-pakistan-kashmir_6895349.jpg?20250424112520",
+    "label": "real"
+  },
+  {
+    "image": "https://e3.365dm.com/25/04/2048x1152/skynews-pakistan-india-kashmir_6895420.jpg?20250424124601",
+    "label": "real"
+  },
+  {
+    "image": "https://e3.365dm.com/25/04/2048x1152/skynews-india-pakistan-kashmir_6895354.jpg?20250424113059",
+    "label": "real"
+  },
+  {
+    "image": "https://static.india.com/wp-content/uploads/2025/05/india-pak-war-.jpg?impolicy=Medium_Widthonly&w=700",
+    "label": "real"
+  },
+  {
+    "image": "https://media.vaticannews.va/media/content/dam-archive/vaticannews/agenzie/images/ansa/2019/02/28/14/security-situation-in-the-wake-of-border-conf-1551361250507.jpg/_jcr_content/renditions/cq5dam.thumbnail.cropped.1500.844.jpeg",
+    "label": "real"
+  },
+  {
+    "image": "https://static.theprint.in/wp-content/uploads/2019/05/meme1-696x392.jpg?compress=true&quality=80&w=800&dpr=2",
+    "label": "meme"
+  },
+  {
+    "image": "https://www.hindustantimes.com/ht-img/img/2024/06/08/550x309/Election_memes_1717492649120_1717873026485.jpg",
+    "label": "meme"
+  },
+  {
+    "image": "https://scontent.fbom36-1.fna.fbcdn.net/v/t39.30808-6/544836822_1388972042594510_7326702349664214916_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Ctzagpx27oQQ7kNvwHsfagg&_nc_oc=Adn7X2pKMhN5dFcBiSt-qKe0SkJN8XM1q2g-dpdIi-_1n_iIXSRco4iykKOMRoexA9E&_nc_zt=23&_nc_ht=scontent.fbom36-1.fna&_nc_gid=51azJGnwVzCSsPBclHC3oA&oh=00_AfgfoRU9QV-DzzRd0D4IThdSj7YR4As9YXcwuM34fd4V-Q&oe=692E539E",
+    "label": "meme"
+  },
+  {
+    "image": "https://www.desimemes.in/wp-content/uploads/2024/10/indian-political-memes.png",
+    "label": "meme"
+  },
+  {
+    "image": "https://media.cnn.com/api/v1/images/stellar/prod/180215193216-thoughts-and-prayers-memes-florida.jpg?q=x_0,y_0,h_900,w_1599,c_fill/h_653,w_1160/f_avif",
+    "label": "meme"
+  },
+  {
+    "image": "https://powertofly.com/up/media-library/most-interesting-man-in-the-world-bad-boss-meme-i-don-t-always-ask-my-employees-how-they-are-but-when-i-do-i-walk-away-before.jpg?id=20568442&width=1000&quality=71",
+    "label": "meme"
+  },
+  {
+    "image": "https://powertofly.com/up/media-library/sandra-bullock-blindfolded-from-the-movie-birdbox-bad-boss-meme-your-boss-when-you-re-absolutely-crushing-it.jpg?id=20568451&width=1000&quality=71",
+    "label": "meme"
+  },
+  {
+    "image": "https://www.boredpanda.com/blog/wp-content/uploads/2024/01/clipimage-659e9f9ba2a3d__700.jpg",
+    "label": "meme"
+  },
+  {
+    "image": "https://www.boredpanda.com/blog/wp-content/uploads/2024/01/1-659fd3fa8f727__700.jpg",
+    "label": "meme"
+  },
+  {
+    "image": "https://images.hindustantimes.com/img/2022/02/13/550x309/shark_ta_1644720521354_1644720541635.JPG",
+    "label": "meme"
+  },
+  {
+    "image": "https://static.businessworld.in/1530772981_sqeqcy_Funny-marketing-meme-concept-470.jpg",
+    "label": "meme"
+  },
+  {
+    "image": "https://www.lifewire.com/thmb/jCEnckPfBRXL58scw-bXa-4-Xwo=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Goalfor2020FunnyMeme-04eadff55a17489a85453238481fe36e.jpg",
+    "label": "meme"
+  },
+  {
+    "image": "https://axiomq.com/wp-content/uploads/2020/02/meme.jpg",
+    "label": "meme"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258649/Gemini_Generated_Image_q0mldlq0mldlq0ml_xizz0f.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258648/Gemini_Generated_Image_6a1b0g6a1b0g6a1b_gazpwr.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258645/Gemini_Generated_Image_l9lv8al9lv8al9lv_rdy8gr.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258644/Gemini_Generated_Image_wgcze8wgcze8wgcz_a6f6ds.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258642/Gemini_Generated_Image_k4btrlk4btrlk4bt_z9gacv.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258642/Gemini_Generated_Image_2qr1je2qr1je2qr1_lndlgn.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258640/Gemini_Generated_Image_m6gj0am6gj0am6gj_xyv1yi.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258639/Gemini_Generated_Image_kftfv8kftfv8kftf_jj5k3b.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258638/Gemini_Generated_Image_ffccnzffccnzffcc_pkfawz.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258636/Gemini_Generated_Image_ev8yl8ev8yl8ev8y_dlx1ow.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258635/ChatGPT_Image_Nov_27_2025_09_13_02_PM_bfwueb.png",
+    "label": "ai"
+  },
+  {
+    "image": "https://res.cloudinary.com/dnfkcjujc/image/upload/v1764258632/ChatGPT_Image_Nov_27_2025_09_14_33_PM_nsl3qe.png",
+    "label": "ai"
+  }
+]
