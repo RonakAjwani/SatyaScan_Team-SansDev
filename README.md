@@ -2,7 +2,8 @@
 
 An AI-powered browser extension that helps you verify news, detect misinformation, and analyze images for manipulation (Deepfakes/AI-Generation) in real-time.
 
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/cvOwTcWpWOs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<video src="SatyaScan_Demo_Video.mp4" controls="controls" style="max-width: 100%;">
+</video>
 
 ## Features 🚀
 
