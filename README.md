@@ -2,32 +2,31 @@
 
 An AI-powered browser extension that helps you verify news, detect misinformation, and analyze images for manipulation (Deepfakes/AI-Generation) in real-time.
 
-<video src="SatyaScan_Demo_Video.mp4" controls="controls" style="max-width: 100%;">
-</video>
+[![SatyaScan Demo](https://img.youtube.com/vi/cvOwTcWpWOs/0.jpg)](https://youtu.be/cvOwTcWpWOs)
 
 ## Features 🚀
 
-![Extension Interface](Screenshots%20of%20the%20Project/Extension%20Frontend.png)
+![Extension Interface](assets/Extension%20Frontend.png)
 
 _The main extension interface showing the analysis capabilities._
 
 - **Page Scan**: Instantly analyze the current webpage for factual accuracy.
 
-  ![Page Scan Analysis](Screenshots%20of%20the%20Project/Scanning%20the%20whole%20page.png)
+  ![Page Scan Analysis](assets/Scanning%20the%20whole%20page.png)
 
   _Real-time analysis of the entire webpage content for misinformation._
 
 - **Text Verification**: Highlight any text, right-click, and verify it.
 
-  ![Text Verification](Screenshots%20of%20the%20Project/Content%20Analysis.png)
+  ![Text Verification](assets/Content%20Analysis.png)
 
   _Context menu integration allowing verification of specific text selections._
 
-  ![Right Click Context Menu](Screenshots%20of%20the%20Project/Right%20Click.png)
+  ![Right Click Context Menu](assets/Right%20Click.png)
 
   _Right-click context menu to initiate verification._
 
-  ![Right Click Analysis Results](Screenshots%20of%20the%20Project/Right%20Click%20Results.png)
+  ![Right Click Analysis Results](assets/Right%20Click%20Results.png)
 
   _Analysis results displayed after verifying the selected text._
 
@@ -37,13 +36,13 @@ _The main extension interface showing the analysis capabilities._
   - **Manipulation Check**: Uses Error Level Analysis (ELA) to find edited regions.
   - **OCR**: Extracts text from images/screenshots and fact-checks it.
 
-  ![Image Forensics Analysis](Screenshots%20of%20the%20Project/Image%20Analysis.png)
+  ![Image Forensics Analysis](assets/Image%20Analysis.png)
 
   _Detailed image analysis showing deepfake detection and forensic checks._
 
 - **Smart History**: Saves your scans locally for easy reference.
 
-  ![Smart History](Screenshots%20of%20the%20Project/History%20Tab.png)
+  ![Smart History](assets/History%20Tab.png)
 
   _Local history of all previous scans for quick access._
 
