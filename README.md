@@ -1,16 +1,42 @@
-# Misinformation Detector Copilot 🕵️‍♂️
+# SatyaScan 🔍️
 
 An AI-powered browser extension that helps you verify news, detect misinformation, and analyze images for manipulation (Deepfakes/AI-Generation) in real-time.
 
 ## Features 🚀
 
+
+![Extension Interface](Screenshots%20of%20the%20Project/Extension%20Frontend.png)
+*The main extension interface showing the analysis capabilities.*
+
 -   **Page Scan**: Instantly analyze the current webpage for factual accuracy.
+    
+    ![Page Scan Analysis](Screenshots%20of%20the%20Project/Scanning%20the%20whole%20page.png)
+    *Real-time analysis of the entire webpage content for misinformation.*
+
 -   **Text Verification**: Highlight any text, right-click, and verify it.
+    
+    ![Text Verification](Screenshots%20of%20the%20Project/Content%20Analysis.png)
+    *Context menu integration allowing verification of specific text selections.*
+
+    ![Right Click Context Menu](Screenshots%20of%20the%20Project/Right%20Click.png)
+    *Right-click context menu to initiate verification.*
+
+    ![Right Click Analysis Results](Screenshots%20of%20the%20Project/Right%20Click%20Results.png)
+    *Analysis results displayed after verifying the selected text.*
+
 -   **Image Forensics**:
     -   **Deepfake Detection**: Scans for AI signatures (Midjourney, Stable Diffusion).
     -   **Manipulation Check**: Uses Error Level Analysis (ELA) to find edited regions.
     -   **OCR**: Extracts text from images/screenshots and fact-checks it.
+    
+    ![Image Forensics Analysis](Screenshots%20of%20the%20Project/Image%20Analysis.png)
+    *Detailed image analysis showing deepfake detection and forensic checks.*
+
 -   **Smart History**: Saves your scans locally for easy reference.
+    
+    ![Smart History](Screenshots%20of%20the%20Project/History%20Tab.png)
+    *Local history of all previous scans for quick access.*
+
 -   **Privacy Focused**: Runs analysis on demand; no background tracking.
 
 ## Setup Guide 🛠️
