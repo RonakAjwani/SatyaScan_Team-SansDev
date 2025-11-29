@@ -29,7 +29,7 @@ class XService:
         }
         params = {
             "query": safe_query,
-            "max_results": min(max_results, 10), # Basic tier limits
+            "max_results": max(10, min(max_results, 100)), # Ensure between 10 and 100
             "tweet.fields": "created_at,author_id,public_metrics",
             "expansions": "author_id"
         }

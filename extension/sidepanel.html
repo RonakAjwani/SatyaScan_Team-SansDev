@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SatyaScan</title>
+    <style>
+      :root {
+        /* Neo-Brutalism Palette */
+        --bg-main: #fff8e1; /* Light Yellowish */
+        --bg-card: #ffffff;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+
+        /* Googley Colors */
+        --color-blue: #4285f4;
+        --color-red: #ea4335;
+        --color-yellow: #fbbc05;
+        --color-green: #34a853;
+
+        --border-width: 3px;
+        --shadow-offset: 4px;
+
+        --border-color: #000000;
+        --shadow-color: #000000;
+
+        /* Compatibility Mappings for JS injected content */
+        --accent-primary: var(--color-blue);
+        --glass-border: var(--border-color);
+        --success: var(--color-green);
+        --danger: var(--color-red);
+
+        --font-main: "Verdana", sans-serif;
+      }
+
+      [data-theme="dark"] {
+        /* Dark Mode Neo-Brutalism */
+        --bg-main: #0f0f0f;
+        --bg-card: #1f1f1f;
+        --text-primary: #ffffff;
+        --text-secondary: #aaaaaa;
+
+        /* Adjusted Colors for Dark Mode */
+        --color-blue: #6ea1fc;
+        --color-red: #fc6e62;
+        --color-yellow: #fcd256;
+        --color-green: #56fc7a;
+
+        --border-color: #ffffff;
+        --shadow-color: #ffffff;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-main);
+        background-color: var(--bg-main);
+        color: var(--text-primary);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      /* Tabs */
+      .tabs {
+        display: flex;
+        padding: 10px;
+        gap: 10px;
+        background: var(--bg-main);
+        border-bottom: var(--border-width) solid var(--border-color);
+      }
+
+      .tab {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        background: var(--bg-card);
+        border: var(--border-width) solid var(--border-color);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px
+          var(--shadow-color);
+        transition: all 0.1s;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
+
+      .tab:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: calc(var(--shadow-offset) + 1px)
+          calc(var(--shadow-offset) + 1px) 0px 0px var(--shadow-color);
+      }
+
+      .tab.active {
+        background: var(--color-yellow);
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px 0px var(--shadow-color);
+        color: black; /* Ensure text is readable on yellow */
+      }
+
+      [data-tab="scan"].active {
+        background: var(--color-blue);
+        color: white;
+      }
+      [data-tab="image"].active {
+        background: var(--color-red);
+        color: white;
+      }
+      [data-tab="history"].active {
+        background: var(--color-green);
+        color: white; /* Or black if the green is too light */
+      }
+      [data-tab="settings"].active {
+        background: var(--color-yellow);
+        color: black;
+      }
+
+      /* Dark mode specific overrides for active tabs if needed */
+      [data-theme="dark"] [data-tab="history"].active {
+        color: black; /* The green is quite bright in dark mode */
+      }
+      [data-theme="dark"] [data-tab="scan"].active {
+        color: black; /* The blue is quite bright */
+      }
+      [data-theme="dark"] [data-tab="image"].active {
+        color: black;
+      }
+
+      .tab-content {
+        display: none;
+        flex: 1;
+        flex-direction: column;
+        overflow: hidden;
+        padding: 10px;
+      }
+
+      .tab-content.active {
+        display: flex;
+      }
+
+      /* Chat & Content */
+      .chat-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .message {
+        padding: 1rem;
+        border: var(--border-width) solid var(--border-color);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px
+          var(--shadow-color);
+        max-width: 90%;
+        line-height: 1.5;
+        font-size: 0.9rem;
+        word-wrap: break-word;
+        font-weight: 500;
+      }
+
+      .message.user {
+        background: var(--color-blue);
+        color: white;
+        align-self: flex-end;
+        border-radius: 0;
+      }
+
+      [data-theme="dark"] .message.user {
+        color: black;
+      }
+
+      .message.agent {
+        background: var(--bg-card);
+        color: var(--text-primary);
+        align-self: flex-start;
+        border-radius: 0;
+      }
+
+      .input-area {
+        padding: 1rem;
+        border-top: var(--border-width) solid var(--border-color);
+        background: var(--bg-main);
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .btn {
+        padding: 0.75rem 1rem;
+        border: var(--border-width) solid var(--border-color);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px
+          var(--shadow-color);
+        font-weight: 800;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.1s;
+        text-transform: uppercase;
+        background: var(--bg-card);
+        color: var(--text-primary);
+      }
+
+      .btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px 0px var(--shadow-color);
+      }
+
+      .btn-primary {
+        background: var(--color-green);
+        color: white;
+        width: 100%;
+        justify-content: center;
+      }
+
+      [data-theme="dark"] .btn-primary {
+        color: black;
+      }
+
+      .btn-primary:hover {
+        filter: brightness(0.9);
+      }
+
+      .btn-icon {
+        background: var(--color-yellow);
+        color: black;
+      }
+
+      /* Upload Zone */
+      .upload-zone {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: var(--border-width) dashed var(--border-color);
+        background: var(--bg-card);
+        margin: 1rem;
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px
+          var(--shadow-color);
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .upload-zone:hover {
+        background: var(--bg-main);
+        transform: translate(-1px, -1px);
+      }
+
+      /* History Items */
+      .history-list {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        overflow-y: auto;
+        flex: 1;
+      }
+
+      .history-item {
+        background: var(--bg-card);
+        border: var(--border-width) solid var(--border-color);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px
+          var(--shadow-color);
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.1s;
+      }
+
+      .history-item:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px 0px var(--shadow-color);
+      }
+
+      .history-item:active {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px 0px var(--shadow-color);
+      }
+
+      .history-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        font-weight: bold;
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 5px;
+      }
+
+      .history-preview {
+        font-size: 0.9rem;
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .settings-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background: var(--bg-card);
+        border: var(--border-width) solid var(--border-color);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px
+          var(--shadow-color);
+        margin-bottom: 1rem;
+        font-weight: bold;
+      }
+
+      /* Toggle Switch - Neo Brutalist */
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-card);
+        border: 3px solid var(--border-color);
+        transition: 0.2s;
+        box-shadow: 2px 2px 0px 0px var(--shadow-color);
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 4px;
+        bottom: 2px;
+        background-color: var(--text-primary);
+        transition: 0.2s;
+        border: 2px solid var(--border-color);
+      }
+
+      input:checked + .slider {
+        background-color: var(--color-green);
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(28px);
+        background-color: white;
+        border-color: black; /* Keep knob border black for contrast on green? Or var(--border-color)? */
+      }
+
+      [data-theme="dark"] input:checked + .slider:before {
+        border-color: black; /* Ensure contrast */
+      }
+
+      .slider.round {
+        border-radius: 0;
+      }
+
+      .slider.round:before {
+        border-radius: 0;
+      }
+
+      /* Result Styling */
+      .verdict-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 3px solid var(--border-color);
+        font-size: 0.9rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        box-shadow: 4px 4px 0px 0px var(--shadow-color);
+      }
+
+      .verdict-true {
+        background: var(--color-green);
+        color: white;
+      }
+      [data-theme="dark"] .verdict-true {
+        color: black;
+      }
+
+      .verdict-false {
+        background: var(--color-red);
+        color: white;
+      }
+      [data-theme="dark"] .verdict-false {
+        color: black;
+      }
+
+      .confidence-bar {
+        height: 12px;
+        background: var(--bg-card);
+        border: 2px solid var(--border-color);
+        margin-top: 0.5rem;
+        overflow: hidden;
+      }
+
+      .confidence-fill {
+        height: 100%;
+        background: var(--color-blue);
+        border-right: 2px solid var(--border-color);
+      }
+
+      /* Citation Chips */
+      .citation-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .citation-chip {
+        background: var(--color-yellow);
+        padding: 0.3rem 0.6rem;
+        border: 2px solid var(--border-color);
+        font-size: 0.75rem;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 2px 2px 0px 0px var(--shadow-color);
+        transition: transform 0.1s;
+      }
+
+      .citation-chip:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 3px 3px 0px 0px var(--shadow-color);
+      }
+
+      /* Thinking Animation */
+      .thinking-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-primary);
+        font-weight: bold;
+        border: 2px solid var(--border-color);
+        padding: 10px;
+        background: var(--bg-card);
+        box-shadow: 3px 3px 0px 0px var(--shadow-color);
+      }
+
+      .thinking-dots {
+        display: flex;
+        gap: 4px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        background: var(--text-primary);
+        border-radius: 0; /* Square dots */
+        animation: pulse 1.4s infinite ease-in-out both;
+      }
+
+      .dot:nth-child(1) {
+        animation-delay: -0.32s;
+        background: var(--color-blue);
+      }
+      .dot:nth-child(2) {
+        animation-delay: -0.16s;
+        background: var(--color-red);
+      }
+      .dot:nth-child(3) {
+        background: var(--color-yellow);
+      }
+
+      @keyframes pulse {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg-main);
+        border-left: 2px solid var(--border-color);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--text-primary);
+        border: 2px solid var(--bg-main);
+      }
+
+      /* Range Input */
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        background: transparent;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        background: var(--color-blue);
+        border: 2px solid var(--border-color);
+        cursor: pointer;
+        margin-top: -8px;
+        box-shadow: 2px 2px 0px 0px var(--shadow-color);
+      }
+
+      input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        background: var(--text-primary);
+        border-radius: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div
+      class="header"
+      style="
+        padding: 10px;
+        text-align: center;
+        background: var(--bg-main);
+        border-bottom: var(--border-width) solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      "
+    >
+      <img src="SatyaScan-logo.png" style="width: 32px; height: 32px" />
+      <h1
+        style="
+          margin: 0;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          font-weight: 900;
+        "
+      >
+        SatyaScan
+      </h1>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active" data-tab="scan">Scan</div>
+      <div class="tab" data-tab="image">Image</div>
+      <div class="tab" data-tab="history">History</div>
+      <div class="tab" data-tab="settings">Settings</div>
+    </div>
+
+    <!-- Tab Content: Scan -->
+    <div id="scan-tab" class="tab-content active">
+      <div class="chat-container" id="chatContainer">
+        <div class="message agent">
+          Hello! I'm SatyaScan. I can scan the current page for misinformation.
+        </div>
+      </div>
+      <div class="input-area">
+        <button id="resetBtn" class="btn btn-icon" title="New Scan">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M23 4v6h-6"></path>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+        </button>
+        <button id="scanBtn" class="btn btn-primary">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          Scan Page
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Content: Image -->
+    <div id="image-tab" class="tab-content">
+      <div class="upload-zone" id="dropZone">
+        <svg
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--text-secondary)"
+          stroke-width="1.5"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <p style="margin: 0.5rem 0">Drag & Drop Image</p>
+        <span style="font-size: 0.8rem; color: var(--text-secondary)">or</span>
+        <button
+          id="chooseFileBtn"
+          class="btn btn-primary"
+          style="margin-top: 0.5rem; width: auto"
+        >
+          Choose File
+        </button>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </div>
+
+      <div
+        id="image-preview"
+        style="display: none; padding: 1rem; text-align: center"
+      >
+        <img
+          id="preview-img"
+          src=""
+          style="
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 3px solid var(--border-color);
+            box-shadow: 4px 4px 0px 0px var(--shadow-color);
+          "
+        />
+        <div style="display: flex; gap: 0.5rem">
+          <button id="resetImageBtn" class="btn btn-icon" style="flex: 1">
+            Cancel
+          </button>
+          <button id="analyzeImageBtn" class="btn btn-primary" style="flex: 2">
+            Analyze Image
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Content: History -->
+    <div id="history-tab" class="tab-content">
+      <div id="history-list" class="history-list">
+        <!-- History Items will be injected here -->
+        <div
+          style="
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+          "
+        >
+          No history yet.
+        </div>
+      </div>
+      <div style="padding: 1rem; border-top: 3px solid var(--border-color)">
+        <button
+          id="clearHistoryBtn"
+          class="btn"
+          style="
+            width: 100%;
+            background: var(--color-red);
+            color: white;
+            justify-content: center;
+          "
+        >
+          Clear History
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Content: Settings -->
+    <div id="settings-tab" class="tab-content">
+      <div class="settings-container">
+        <div class="settings-item">
+          <span>Dark Mode</span>
+          <label class="switch">
+            <input type="checkbox" id="themeToggle" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div class="settings-item">
+          <span>Auto-Scan Page Load</span>
+          <label class="switch">
+            <input type="checkbox" id="autoScanToggle" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div
+          class="settings-item"
+          style="flex-direction: column; align-items: flex-start; gap: 0.5rem"
+        >
+          <div
+            style="display: flex; justify-content: space-between; width: 100%"
+          >
+            <span>Confidence Threshold</span>
+            <span
+              id="thresholdValue"
+              style="color: var(--color-blue); font-weight: bold"
+              >70%</span
+            >
+          </div>
+          <input
+            type="range"
+            id="confidenceThreshold"
+            min="50"
+            max="95"
+            value="70"
+            style="width: 100%"
+          />
+          <div style="font-size: 0.75rem; color: var(--text-secondary)">
+            Only show "Verified" if confidence is above this.
+          </div>
+        </div>
+
+        <div
+          style="
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-top: 2rem;
+            font-weight: bold;
+          "
+        >
+          SatyaScan v1.1.0
+        </div>
+      </div>
+    </div>
+
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

@@ -176,7 +176,7 @@ def researcher(state: AgentState):
         print("DEBUG: Executing X Search...")
         # Use the first generated query for X search to avoid length limits and improve relevance
         x_query = queries[0] if queries else claims[:100] 
-        x_results = x_service.search_recent_tweets(x_query, max_results=5)
+        x_results = x_service.search_recent_tweets(x_query, max_results=10)
         for tweet in x_results:
             all_evidence.append({
                 "url": tweet['url'],
